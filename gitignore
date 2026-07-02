@@ -1,0 +1,58 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# --- Virtual environments ---
+venv/
+env/
+.venv/
+ENV/
+
+# --- Environment / secrets ---
+.env
+.env.local
+*.pem
+config.local.py
+secrets.json
+
+# --- Flask ---
+instance/
+*.db
+*.sqlite3
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# --- ML artifacts (large files, keep out of git history) ---
+*.h5
+*.pt
+*.pth
+*.pkl
+*.joblib
+*.onnx
+models/*.h5
+models/*.pt
+saved_models/
+checkpoints/
+
+# --- Datasets (add exceptions below if a small sample CSV should be tracked) ---
+data/raw/
+data/processed/
+*.csv
+!data/sample/*.csv
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
+logs/
