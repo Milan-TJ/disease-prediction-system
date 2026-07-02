@@ -3,12 +3,13 @@
 ML-based disease prediction with a generative AI recipe recommendation layer, deployed as a Flask app.
 
 ## Team
-| Name | Role |
-|---|---|
-| Milan TJ | Team Lead |
-| | |
-| | |
-| | |
+| Name |
+|---|
+| Milan TJ |
+| Sona Santhosh|
+| Nandana Venugopal|
+| Ajul ND|
+|P Padm Sarang |
 
 ## Project structure
 ```
