@@ -1,0 +1,28 @@
+body{
+    background:#eef5f9;
+}
+
+.card{
+    border-radius:20px;
+}
+
+.symptom-box{
+    height:350px;
+    overflow-y:auto;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:20px;
+    background:white;
+}
+
+.form-check{
+    margin-bottom:10px;
+}
+
+.form-check-label{
+    font-size:15px;
+}
+
+.btn{
+    border-radius:10px;
+}

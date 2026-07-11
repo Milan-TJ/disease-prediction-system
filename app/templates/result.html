@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prediction Result</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+<div class="card shadow-lg p-4">
+
+<h1 class="text-center text-success">
+
+Prediction Result
+
+</h1>
+
+<hr>
+
+<h3>🩺 Predicted Disease</h3>
+
+<div class="alert alert-success">
+
+<strong>{{ disease }}</strong>
+
+</div>
+
+<h3>Confidence</h3>
+
+<div class="progress mb-4">
+
+<div
+class="progress-bar bg-success"
+role="progressbar"
+style="width: {{ confidence }}%;">
+
+{{ confidence }} %
+
+</div>
+
+</div>
+
+<h3 class="mt-4">Top 3 Predictions</h3>
+
+<table class="table table-striped">
+
+    <thead>
+
+        <tr>
+
+            <th>Disease</th>
+
+            <th>Confidence</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for item in top3 %}
+
+        <tr>
+
+            <td>{{ item.disease }}</td>
+
+            <td>{{ item.confidence }} %</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+<h3>Description</h3>
+
+<p>
+
+{{ description }}
+
+</p>
+
+<h3>Precautions</h3>
+
+<ul class="list-group">
+
+{% for item in precautions %}
+
+<li class="list-group-item">
+
+✅ {{ item }}
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+<br>
+
+<hr>
+
+<h2>AI Health & Diet Recommendation</h2>
+
+<div class="card p-3 shadow-sm">
+    <div class="card border-success shadow-sm mt-3">
+
+<div class="card-header bg-success text-white">
+
+🍽 AI Health & Diet Recommendation
+
+</div>
+
+<div class="card-body">
+
+<pre style="white-space: pre-wrap; font-family: Arial; font-size:16px;">
+{{ ai_response }}
+</pre>
+
+</div>
+
+</div>
+</div>
+
+<h3>Symptoms Entered</h3>
+
+<ul>
+
+{% for symptom in symptoms %}
+
+<li>{{ symptom }}</li>
+
+{% endfor %}
+
+</ul>
+
+<div class="text-center">
+
+<a href="/" class="btn btn-primary">
+
+Predict Again
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

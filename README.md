@@ -155,7 +155,7 @@ Disease descriptions, precautions, and symptom severity weights — mapped to al
 from google import genai
 client = genai.Client(api_key=GEMINI_API_KEY)
 response = client.models.generate_content(
-    model='gemini-2.0-flash',
+    model='gemini-3.1-flash-lite',
     contents=prompt,
 )
 ```
@@ -175,6 +175,60 @@ Set `GEMINI_API_KEY` as an environment variable or directly in the notebook. Fal
 | `notebooks/outputs/classification_report.csv` | Per-class precision/recall/F1 |
 
 ---
+
+---
+
+## Ticket 3 — Model Optimization & Flask Deployment
+
+### Optimization
+
+The final Disease Prediction System was optimized for deployment by selecting the best-performing model (Bernoulli Naive Bayes) based on accuracy, inference speed, and model size.
+
+Optimization steps performed:
+
+1. Selected the Bernoulli Naive Bayes model as the production model.
+2. Saved the trained model using Joblib for efficient loading.
+3. Stored symptom columns and disease label mappings separately for inference.
+4. Reduced inference time by loading all resources only once during application startup.
+5. Integrated the Google Gemini API to generate disease-specific health, diet, recipe, and lifestyle recommendations.
+
+### Flask Web Application
+
+The trained model was deployed using the Flask framework.
+
+The web application provides:
+
+- Selection of one or more symptoms using checkboxes.
+- Disease prediction using the trained Machine Learning model.
+- Prediction confidence score.
+- Top 3 predicted diseases with confidence values.
+- Disease description.
+- Recommended precautions.
+- AI-generated health, diet, recipe, and lifestyle recommendations using Gemini.
+- Display of the symptoms selected by the user.
+
+### Application Workflow
+
+1. User selects symptoms.
+2. Flask receives the selected symptoms.
+3. Symptoms are converted into a binary feature vector.
+4. The Bernoulli Naive Bayes model predicts the disease.
+5. Prediction probabilities are calculated.
+6. Disease description and precautions are retrieved from the dataset.
+7. Gemini generates personalized dietary recommendations.
+8. Results are displayed on the web interface.
+
+### Outputs
+
+| File | Description |
+|---|---|
+| `app.py` | Flask application entry point |
+| `predictor.py` | Prediction pipeline and Gemini integration |
+| `templates/home.html` | Symptom selection page |
+| `templates/result.html` | Prediction results page |
+| `static/style.css` | Application styling |
+| `.env` | Stores Gemini API key (excluded from Git) |
+| `requirements.txt` | Python dependencies |
 
 ## Workflow
 
