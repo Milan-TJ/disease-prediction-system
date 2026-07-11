@@ -40,10 +40,10 @@ ML-based disease prediction from symptoms with a Generative AI recipe recommenda
 │   ├── symptom_precaution.csv
 │   └── Symptom-severity.csv
 │   └── sample/                 # Small sample data only
+|─── outputs/                # comparison charts
 ├── notebooks/
 │   ├── Ticket1_Data_Collection_EDA.ipynb
 │   ├── Ticket2_Model_Development.ipynb
-│   └── outputs/                # EDA and model comparison charts (PNG)
 ├── requirements.txt
 ├── .gitignore
 ├── CONTRIBUTING.md
@@ -117,7 +117,6 @@ Disease descriptions, precautions, and symptom severity weights — mapped to al
 | `data/symptom_Description.csv` | Disease descriptions (41 diseases) |
 | `data/symptom_precaution.csv` | 4 precautions per disease (41 diseases) |
 | `data/Symptom-severity.csv` | Severity weight per symptom (132 symptoms, scale 1–7) |
-| `notebooks/outputs/01–07_*.png` | 7 EDA visualisations |
 
 ---
 
@@ -173,11 +172,6 @@ Set `GEMINI_API_KEY` as an environment variable or directly in the notebook. Fal
 | `models/disease_label_mapping.csv` | Encoded label ↔ disease name |
 | `models/model_metadata.json` | Full metrics, model name, class names |
 | `models/pipeline.py` | Importable prediction + GenAI recommendation pipeline |
-| `notebooks/outputs/08_model_comparison.png` | Accuracy/F1 bar chart |
-| `notebooks/outputs/09_cv_scores.png` | 5-fold CV scores with error bars |
-| `notebooks/outputs/10_confusion_matrix.png` | Confusion matrix (best model, test set) |
-| `notebooks/outputs/11_feature_importance.png` | RF + XGBoost feature importances |
-| `notebooks/outputs/12_roc_auc.png` | ROC-AUC comparison |
 | `notebooks/outputs/classification_report.csv` | Per-class precision/recall/F1 |
 
 ---
