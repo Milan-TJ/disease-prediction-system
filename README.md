@@ -180,6 +180,9 @@ Set `GEMINI_API_KEY` as an environment variable or directly in the notebook. Fal
 
 ## Ticket 3 — Model Optimization & Flask Deployment
 
+**Owner:** Milan TJ (lead), Nandana Venugopal, Sona Santhosh | **Completed:** 08 Jul 2026
+
+
 ### Optimization
 
 The final Disease Prediction System was optimized for deployment by selecting the best-performing model (Bernoulli Naive Bayes) based on accuracy, inference speed, and model size.

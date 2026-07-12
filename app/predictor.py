@@ -5,26 +5,35 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 from google import genai
+from pathlib import Path
 
 load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
+
+# app/
+BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent
+
+DATA_DIR = PROJECT_ROOT / "data"
+MODEL_DIR = PROJECT_ROOT / "models"
+
 # Load model
-model = joblib.load("models/best_model.pkl")
+model = joblib.load(MODEL_DIR / "best_model.pkl")
 
 # Load symptom list
-with open("models/symptom_cols.json", "r") as f:
+with (MODEL_DIR / "symptom_cols.json").open("r", encoding="utf-8") as f:
     symptom_cols = json.load(f)
 
 # Load disease label mapping
-label_map = pd.read_csv("models/disease_label_mapping.csv")
+label_map = pd.read_csv(DATA_DIR / "disease_label_mapping.csv")
 
 # Load disease descriptions
-description_df = pd.read_csv("data/symptom_Description.csv")
+description_df = pd.read_csv(DATA_DIR / "symptom_Description.csv")
 
 # Load precautions
-precaution_df = pd.read_csv("data/symptom_precaution.csv")
+precaution_df = pd.read_csv(DATA_DIR / "symptom_precaution.csv")
 
 
 def predict(symptom_list):
